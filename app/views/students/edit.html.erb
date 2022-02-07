@@ -1,0 +1,16 @@
+<%=form_for @student  /do |f|   %>
+
+  <%= f.label :Name%>
+  <%= f.text_field :name%>
+  <br><br>
+  <%= f.label :Age%>
+  <%= f.text_field :age%>
+  <br><br>
+  <%= f.label :Status%>
+  <%= f.number_field :status%>
+  <br><br>
+  
+<br><br>
+  <%= f.submit "update"%>
+
+  <% end %>

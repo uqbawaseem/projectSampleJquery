@@ -1,0 +1,24 @@
+<%= link_to 'Add new Student', controller: "students", action: "new" %>
+<h1>All Students</h1>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Status</td>
+        <td>Action</td>
+    </tr>
+     
+    <% @students.each do |s|%>
+    <tr>
+        <td><%= s.id%></td>
+        <td><%= s.name%></td>
+        <td><%= s.age%></td>
+        <td><%= s.status%></td>
+        <td><%= link_to 'Details', student_path(s) %></td>
+        <td><%= link_to 'Edit', edit_student_path(s) %></td>
+        <td><%= button_to 'Destroy',  s , method: :delete, data: {confirm: "Are you sure?"} %></td>
+    </tr>
+    <% end %>
+</table>
