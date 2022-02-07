@@ -15,9 +15,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to root_path
+      redirect_to root_path 
     else
-      render :new, status: :unprocessable_entity
+      render :new, notice: 'student was not created.'
     end
   end
 
@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
     if @student.update(student_params)
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render :new, notice: 'student was not updated.'
     end
   end
 
