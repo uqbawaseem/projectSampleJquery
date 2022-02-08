@@ -1,4 +1,4 @@
-<%=form_for @student  /do |f|   %>
+<%=form_for @student  do |f|   %>
 
   <%= f.label :Name%>
   <%= f.text_field :name%>
@@ -6,8 +6,12 @@
   <%= f.label :Age%>
   <%= f.text_field :age%>
   <br><br>
+  <%= f.label :Email%>
+  <%= f.text_field :email%><br>
+  <%= f.label :Password%>
+  <%= f.text_field :password%><br>
   <%= f.label :Status%>
-  <%= f.number_field :status%>
+  <%= f.text_field :status%>
   <br><br>
 <br><br>
   <%= f.submit "update"%>

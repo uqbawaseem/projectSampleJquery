@@ -6,6 +6,8 @@
         <td>Id</td>
         <td>Name</td>
         <td>Age</td>
+        <td>Email</td>
+        <td>Password</td>
         <td>Status</td>
         <td>Action</td>
     </tr>
@@ -15,6 +17,8 @@
         <td><%= s.id%></td>
         <td><%= s.name%></td>
         <td><%= s.age%></td>
+        <td><%= s.email%></td>
+        <td><%= s.password%></td>
         <td><%= s.status%></td>
         <td><%= link_to 'Details', student_path(s) %></td>
         <td><%= link_to 'Edit', edit_student_path(s) %></td>

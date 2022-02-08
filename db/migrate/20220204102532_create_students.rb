@@ -4,6 +4,8 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :age
       t.string :status
+      t.string :email
+      t.string :password
 
       t.timestamps
     end
