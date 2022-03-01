@@ -1,7 +1,7 @@
-<%= link_to 'Add new Student', controller: "students", action: "new" %>
+<%= link_to 'Add new Student', new_student_path, data:{bs_toggle:"modal", bs_target:"#newStudent", remote: true}%>
 <h1>All Students</h1>
 
-<table>
+<table id="table">
     <tr>
         <td>Id</td>
         <td>Name</td>
@@ -13,16 +13,36 @@
     </tr>
      
     <% @students.each do |s|%>
-    <tr>
-        <td><%= s.id%></td>
-        <td><%= s.name%></td>
-        <td><%= s.age%></td>
-        <td><%= s.email%></td>
-        <td><%= s.password_digest%></td>
-        <td><%= s.status%></td>
-        <td><%= link_to 'Details', student_path(s) %></td>
-        <td><%= link_to 'Edit', edit_student_path(s) %></td>
-        <td><%= button_to 'Destroy',  s , method: :delete, data: {confirm: "Are you sure?"} %></td>
-    </tr>
+    <%= render 'student', s: s %>
     <% end %>
 </table>
+
+
+<!-- Modal -->
+<div class="modal" id="newStudent" tabindex="-1" aria-labelledby="newStudentLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newStudentLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="newForm">
+      </div>
+    </div>
+  </div>
+</div>
+<p>This is a paragraph.</p>
+
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
+
+<script>
+$(document).ready(function(){
+  $(".btn1").click(function(){
+    $("p").hide();
+  });
+  $(".btn2").click(function(){
+    $("p").show();
+  });
+});
+</script>

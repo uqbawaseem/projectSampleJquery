@@ -17,11 +17,15 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    if @student.save
-      redirect_to root_path 
-    else
-      render :new, notice: 'student was not created.'
+    # binding.pry
+    respond_to do |format|
+      if @student.save
+      format.js 
+      else
+        format.js 
+      end
     end
+    
   end
 
 
@@ -44,13 +48,13 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     if @student.destroy
       redirect_to root_path
-    else    
+    else    	
     end
   end
   
 
     private 
     def student_params 
-    params.require(:student).permit(:name, :age, :status, :email, :password)
+    params.require(:student).permit(:name, :age, :status, :email, :password_digest)
     end
 end

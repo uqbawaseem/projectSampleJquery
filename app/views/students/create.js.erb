@@ -1,0 +1,6 @@
+<% if @student.errors.any? %>
+alert('Invalid Details');
+<% else %>
+$('#table').append("<%= escape_javascript render('student', s: @student)%>");
+$('.close').click();
+<% end %>
